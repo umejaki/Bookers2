@@ -1,5 +1,6 @@
 <!-- ユーザーの詳細 -->
 <div>
+  <h1>User info</h1>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
   <% if @user == current_user %>
@@ -7,8 +8,51 @@
   <% end %>
 </div>
 
-<!-- ユーザーの投稿一覧 -->
+<h1>Books</h1>
+ 
+ <table>
+   <thead>
+   <tr>
+    <th>Title</th>
+    <th>Body</th>
+   </tr>
+   </thead>
 
+<tbody>
+ <% @books.each do |book| %>
+  <tr>
+  <td><%= book.title %></td>
+  <td><%= book.body %></td>
+  <td><%= link_to "Show", book_path(book.id) %></td>
+  <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+  <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  </tr>
+  <% end %>
+  </tbody>
+ </table>
+ 
+<h1>New book</h1>
+　<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this book from being saved:
+　　<ul>
+   <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+ 　</ul>
+ <% end %>
+
+<%= form_with model: @book, url: 'books', method: :post do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+	
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<!-- ユーザーの投稿一覧 -->
+<h1>Books</h1>
 <% @books.each do |book| %>
 <div>
   <%= link_to book_path(book.id) do %>
