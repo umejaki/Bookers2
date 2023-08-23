@@ -30,6 +30,8 @@ class BooksController < ApplicationController
   
   def edit
     @book = Book.find(params[:id])
+    flash[:notice] = "You have updated book successfully."
+    redirect_to book_path
   end
   
    def destroy
