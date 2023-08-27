@@ -16,9 +16,6 @@
   <p>name<%= @user.name %></p>
   <p>introduction<%= @user.introduction %>	</p>
   <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "削除", book_path(@book), method: :delete %>
-  <% end %>
   </div>
  
  
