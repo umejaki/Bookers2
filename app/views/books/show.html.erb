@@ -16,10 +16,10 @@
 
  <h1>User info</h1>
   <div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>name<%= @user.name %></p>
-  <p>introduction<%= @user.introduction %>	</p>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
+  <%= image_tag  @booker.user.get_profile_image(100,100) %>
+  <p>name<%= @booker.user.name %></p>
+  <p>introduction<%= @booker.user.introduction %>	</p>
+  <p><%= link_to "プロフィール編集", edit_user_path(@booker.user.id) %></p>
   <% if @booker.user == current_user %>
     <%= link_to "削除", book_path(@booker), method: :delete %>
   <% end %>
@@ -63,5 +63,5 @@
   </tr>
   </tbody>
  </table>
-   <%=  link_to @user.name, user_path(@user.id) %>
+   <%=  link_to @booker.user.name, user_path(@booker.user.id) %>
  
