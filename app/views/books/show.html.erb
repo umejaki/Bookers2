@@ -58,8 +58,10 @@
   </td>
   <td><%= link_to @booker.title, book_path(@booker.id) %></td>
   <td><%= @booker.body %></td>
-  <td><%= link_to "Edit", edit_book_path(@booker.id) %></td>
-  <td><%= link_to "Destroy", book_path(@booker.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  <% if current_user == @booker.user %>
+   <td><%= link_to "Edit", edit_book_path(@booker.id) %></td>
+   <td><%= link_to "Destroy", book_path(@booker.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  <% end %>
   </tr>
   </tbody>
  </table>
