@@ -19,7 +19,9 @@
   <%= image_tag  @booker.user.get_profile_image(100,100) %>
   <p>name<%= @booker.user.name %></p>
   <p>introduction<%= @booker.user.introduction %>	</p>
-  <p><%= link_to "プロフィール編集", edit_user_path(@booker.user.id) %></p>
+  <%= link_to edit_user_path(@booker.user.id), class:'btn btn-outline-secondary' do %>
+    <i class="fas fa-user-cog"></i>
+  <% end%>
   <% if @booker.user == current_user %>
     <%= link_to "削除", book_path(@booker), method: :delete %>
   <% end %>
