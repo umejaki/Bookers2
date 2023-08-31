@@ -9,7 +9,9 @@
 
 
 
-
+<div class="container">
+ <div class="row">
+ <div class="col-md-3">
  <h1>User info</h1>
   <div>
   <%= image_tag @user.get_profile_image(100,100) %>
@@ -32,10 +34,13 @@
   <%= f.submit 'Create Book' %>
   
   <% end %>
+  </div>
   
+  
+  <div class="col-md-8">
   <h1>Books</h1>
  
- <table>
+ <table class="col-md-12">
    <thead>
    <tr>
     <th></th>
@@ -57,4 +62,6 @@
   <% end %>
   </tbody>
  </table>
- 
+ </div>
+ </div>
+ </div>
