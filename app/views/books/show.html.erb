@@ -12,7 +12,9 @@
  <% end %>
 
 
-
+<div class="container">
+ <div class="row">
+ <div class="col-md-3">
 
  <h1>User info</h1>
   <div>
@@ -39,11 +41,12 @@
   <%= f.submit 'Create Book' %>
   
   <% end %>
-  
+  </div>
 
+ <div class="col-md-8 offset-md-1">
  <h1>Book detail</h1>
  
- <table>
+ <table class="col-md-12">
    <thead>
    <tr>
     <th></th>
@@ -68,4 +71,5 @@
   </tbody>
  </table>
    <%=  link_to @booker.user.name, user_path(@booker.user.id) %>
- 
+ </div>
+ </div>

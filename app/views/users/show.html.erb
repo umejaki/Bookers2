@@ -2,7 +2,9 @@
   <%= flash[:notice] %>
 </div>
 
-
+<div class="container">
+ <div class="row">
+ <div class="col-md-3">
 <!-- ユーザーの詳細 -->
 <div>
   <h1>User info</h1>
@@ -12,6 +14,7 @@
   <%= link_to edit_user_path(@user), class:'btn btn-outline-secondary' do %>
      <i class="fas fa-user-cog"></i>
   <% end %>
+  </tbody>
 </div>
 
  <h1>New book</h1>
@@ -34,14 +37,17 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
+</div>
+
+<div class="col-md-8 offset-md-1">
 <h1>Books</h1>
  
- <table>
+ <table class="col-md-12">
    <thead>
    <tr>
     <th></th>
     <th>Title</th>
-    <th>Body</th>
+    <th>Opinion</th>
    </tr>
    </thead>
 
@@ -61,4 +67,7 @@
   <% end %>
   </tbody>
  </table>
+ 
+ </div>
+ </div>
  
